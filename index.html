@@ -1,51 +1,68 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>
-        index.html
-    </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<head>
+		<title>
+			index.html
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <script type="text/javascript">
-        function getInnerHTML() {
-            alert(document.getElementById("tr1").innerHTML);
-        }
-        function displaytime(){
-        	document.getElementById("demo").innerHTML=new Date();
-        }
-    </script>
-</head>
+		<script type="text/javascript">
+			function getInnerHTML() {
+				// 直接通过 
+				alert(document.getElementById("tr1").innerHTML);
+			}
 
+			function displaytime() {
+				// 直接通过 getElementById 函数获取html 标签然后直接修改对应标签的 值。
+				document.getElementById("demo").innerHTML = new Date();
+			}
 
-<body>
-	
-	
-	<h1> 第一个JS 程序</h1>
-	<p id="demo"> Js 是一种可以被浏览器解释执行的脚本语言</p>
-	<button id="buttondemo" onclick="displaytime()">显示时间</button>
-	<h2> js 可以直接在html 的body 标签里面直接输出html标签内容，但是只能 使用<strong>document.write</strong>方法，而且这个方法要是在事件触发函数里面触发将重写覆盖原来整个页面。 </h2>
-	<script>
-		document.write("<h1>h1 大小的标题</h1>");
-		document.write("<p> 段落示例</p>")
-		
-	</script>
-	
-    <p> index.html 默认入口文件</p>
-    <table border="1">
-        <tr id="tr1">
-            <th>Firstnamedsf</th>
-            <th>Lastname</th>
-        </tr>
-        <tr id="tr2">
-            <td>Peter</td>
-            <td>Griffin</td>
-        </tr>
-    </table>
-    <br />
-    <!-- 自定义事件响应函数 -->
-    <input type="button" onclick="getInnerHTML()" value="Alert innerHTML of table row" />
+			function changeImage() {
+				element = document.getElementById('myimage')
+				if(element.src.match("bulbon")) {
+					element.src = "img/pic_bulboff.gif";
+				} else {
+					element.src = "img/pic_bulbon.gif";
+				}
+			}
+		</script>
+	</head>
 
-</body>
+	<body>
+		<h1> 第一个JS 程序</h1>
+		<p id="demo"> Js 是一种可以被浏览器解释执行的脚本语言</p>
+		<button id="buttondemo" onclick="displaytime()">显示时间</button>
+		<h2> js 可以直接在html 的body 标签里面直接输出html标签内容，但是只能 使用<strong>document.write</strong>方法，而且这个方法要是在事件触发函数里面触发将重写覆盖原来整个页面。 </h2>
+		<!-- body 里面内嵌脚本输出 -->
+		<script>
+			document.write("<h1>h1 大小的标题</h1>");
+			document.write("<p> 段落示例</p>");
+
+			function myFunction() {
+				x = document.getElementById("demo") // 找到元素
+				x.style.color = "#ff0000"; // 改变样式
+			}
+		</script>
+		<!-- HTML 显示图片并通过js 改变显示图片 -->
+		<img id="myimage" onclick="changeImage()" src="img/pic_bulboff.gif" width="100" height="180">
+
+		<p> index.html 默认入口文件</p>
+		<table border="1">
+			<tr id="tr1">
+				<th>Firstnamedsf</th>
+				<th>Lastname</th>
+			</tr>
+			<tr id="tr2">
+				<td>Peter</td>
+				<td>Griffin</td>
+			</tr>
+		</table>
+		<br />
+		<!-- 自定义事件响应函数，直接onclick 属性值可以写影响函数 -->
+		<button type="button" onclick="alert('欢迎!')">点我!</button>
+		<input type="button" onclick="getInnerHTML()" value="Alert innerHTML of table row" /><br />
+		<button type="button" onclick="myFunction()">改变html标签属性</button>
+	</body>
 
 </html>
