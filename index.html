@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        index.html
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <script type="text/javascript">
+        function getInnerHTML() {
+            alert(document.getElementById("tr1").innerHTML);
+        }
+        function displaytime(){
+        	document.getElementById("demo").innerHTML=new Date();
+        }
+    </script>
+</head>
+
+
+<body>
+	
+	
+	<h1> 第一个JS 程序</h1>
+	<p id="demo"> Js 是一种可以被浏览器解释执行的脚本语言</p>
+	<button id="buttondemo" onclick="displaytime()">显示时间</button>
+	<h2> js 可以直接在html 的body 标签里面直接输出html标签内容，但是只能 使用<strong>document.write</strong>方法，而且这个方法要是在事件触发函数里面触发将重写覆盖原来整个页面。 </h2>
+	<script>
+		document.write("<h1>h1 大小的标题</h1>");
+		document.write("<p> 段落示例</p>")
+		
+	</script>
+	
+    <p> index.html 默认入口文件</p>
+    <table border="1">
+        <tr id="tr1">
+            <th>Firstnamedsf</th>
+            <th>Lastname</th>
+        </tr>
+        <tr id="tr2">
+            <td>Peter</td>
+            <td>Griffin</td>
+        </tr>
+    </table>
+    <br />
+    <!-- 自定义事件响应函数 -->
+    <input type="button" onclick="getInnerHTML()" value="Alert innerHTML of table row" />
+
+</body>
+
+</html>

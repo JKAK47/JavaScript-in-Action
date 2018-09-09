@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+	作者：1557862201@qq.com
+	时间：2017-11-11
+	描述： 基于 html 5 格式的html 文档格式
+-->
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<!--
+        	描述：加载js库
+        -->
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
+		<!-- 百度Jquery CDN.
+			<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+			<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+        -->
+		
+		<title>jquery 3.2.1</title>
+		<script type="text/javascript">
+			//等待DOM 结构加载完成,然后弹出框输出内容。
+			$(document).ready(function printaa () {
+				alert("sldfjd");
+			});
+			$(document).ready(function printaa () {
+				alert("撒旦法士大夫");
+			});
+			function myfunc(){
+				document.getElementById("demo").innerHTML="demo 你好，引用内部js代码改变内容"
+			}
+		</script>
+		<script src="../../js/JsMy.js"></script>
+	</head>
+	<body>
+		
+		<img id="myimage" onclick="changeImage()"
+		src="../../img/pic_bulbon.gif" width="100" height="180">
+		<p >点击灯泡就可以打开或关闭这盏灯</p>
+		<p id="demo" onclick="myfunc()"> 单击改变文本框内容</p>
+		<p id="xx" onclick="myFunction()"> 引用外部js代码的方法改变内容。</p>
+		<button id="button_01" onclick="buttonClick()"> 单击我</button>
+		<!--  内部JS
+       -->
+		<script>
+			function buttonClick(){
+				var button= document.getElementById("button_01");
+				if(button.innerHTML !=""){
+					button.innerHTML="显示的文字：你好";
+				}else{
+					button.innerHTML="";
+				}
+			}
+			function changeImage()
+			{
+				element=document.getElementById('myimage')
+				if (element.src.match("bulbon"))
+			 	{
+			  		element.src="../../img/pic_bulboff.gif";
+			  	}
+				else
+			   {
+			  		element.src="../../img/pic_bulbon.gif";
+			   }
+			}
+		</script>
+		
+		<p> 下面是js 输出（print）内容方式。<br /></p>
+		<ul> 
+			<li> window.alert() 弹出框输出内容</li>
+			<li> innerHTML (一个元素开始标签和结束标签之间的内容)写入内容到 HTML 元素中</li><p id="inner">inner</p>
+			<li> document.write() 将内容输出到html 文档流中</li>
+			<li> console.log() 方法写入到浏览器的控制台.用F12 启动浏览器调试器可以看到输出结果</li>
+			
+		</ul>
+		<script>
+			window.alert("alert 弹出框输出信息");
+			document.getElementById("inner").innerHTML="inner 我是被innerHTML 改变的元素。" // 改变innerHTML
+			document.write("document.write 输出的内容 "+Date());
+			a=6;
+			b=23;
+			/**
+			 * console 中输出内容
+			 */
+			console.log(a+b);
+		</script>
+	</body>
+</html>
